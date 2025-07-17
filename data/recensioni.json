@@ -1,0 +1,28 @@
+{
+  "recensioni": [
+    {
+      "nome": "Marco Rossi",
+      "testo": "Ho notato un miglioramento significativo nella mia memoria dopo solo due settimane di gioco. L'interfaccia è intuitiva e le sfide sono sempre diverse!"
+    },
+    {
+      "nome": "Sofia Bianchi",
+      "testo": "Mio figlio di 8 anni adora questo gioco! È educativo e divertente allo stesso tempo. Lo consiglio a tutti i genitori."
+    },
+    {
+      "nome": "Luca Verdi",
+      "testo": "La modalità timer mi ha aiutato a migliorare la mia concentrazione. Ora riesco a completare le attività più velocemente anche al lavoro."
+    },
+    {
+      "nome": "Giulia Neri",
+      "testo": "Ho 65 anni e questo gioco mi aiuta a mantenere la mente attiva. I livelli di difficoltà sono perfetti per ogni età."
+    },
+    {
+      "nome": "Alessandro Moretti",
+      "testo": "Come insegnante, uso questo gioco in classe per migliorare le capacità cognitive dei miei studenti. I risultati sono sorprendenti!"
+    },
+    {
+      "nome": "Elena Costa",
+      "testo": "La grafica è bellissima e i Pokémon rendono tutto più divertente. È il miglior gioco di memoria che ho mai provato."
+    }
+  ]
+}

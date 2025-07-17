@@ -1,0 +1,1641 @@
+/* Variabili CSS tematiche */
+:root {
+  --colore-psico: #ff6b6b;
+  --colore-acqua: #4ecdc4;
+  --colore-fuoco: #ff8e53;
+  --colore-erba: #51cf66;
+  --colore-elettro: #ffd93d;
+  --colore-ghiaccio: #74c0fc;
+  --colore-lotta: #ff6b6b;
+  --colore-veleno: #be4bdb;
+  --colore-terra: #fd7e14;
+  --colore-volante: #74b9ff;
+  --colore-psichico: #a29bfe;
+  --colore-insetto: #00b894;
+  --colore-roccia: #636e72;
+  --colore-spettro: #6c5ce7;
+  --colore-drago: #e84393;
+  --colore-buio: #2d3436;
+  --colore-acciaio: #b2bec3;
+  --colore-folletto: #fd79a8;
+
+  --luce-memory: #fff;
+  --ombra-memory: #2d3436;
+  --sfondo-principale: #f8f9fa;
+  --sfondo-sezione: #ffffff;
+  --testo-principale: #2d3436;
+  --testo-secondario: #636e72;
+
+  --tempo-turno: 0.3s;
+  --tempo-animazione: 0.5s;
+  --tempo-transizione: 0.2s;
+
+  --bordo-raggio: 12px;
+  --bordo-raggio-grande: 20px;
+  --spazio-piccolo: 8px;
+  --spazio-medio: 16px;
+  --spazio-grande: 24px;
+  --spazio-enorme: 48px;
+
+  --ombra-carta: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --ombra-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --ombra-testo: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--testo-principale);
+  background-color: var(--sfondo-principale);
+  overflow-x: hidden;
+}
+
+/* Header */
+.pokemon-header {
+  background: linear-gradient(135deg, var(--colore-psico), var(--colore-acqua));
+  padding: var(--spazio-medio);
+  width: 100%;
+  box-shadow: var(--ombra-carta);
+  border-bottom: 3px solid var(--colore-elettro);
+  position: relative;
+  z-index: 999;
+}
+
+.pokemon-header::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--colore-elettro),
+    var(--colore-fuoco),
+    var(--colore-elettro)
+  );
+  opacity: 0.8;
+}
+
+.header-contenuto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.logo-pokemon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--luce-memory);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spazio-piccolo);
+  text-transform: uppercase;
+}
+
+.nav-pokemon {
+  display: flex;
+  gap: var(--spazio-grande);
+}
+
+.nav-link {
+  color: var(--luce-memory);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--tempo-transizione);
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--colore-elettro);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--colore-elettro);
+  transition: width var(--tempo-transizione);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.burger-linea {
+  width: 25px;
+  height: 3px;
+  background: var(--luce-memory);
+  transition: var(--tempo-transizione);
+}
+
+/* Main content */
+.contenuto-principale {
+  margin-top: 0;
+}
+
+/* Hero Section */
+.eroe-sezione {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/pokemon-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.eroe-sezione::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  z-index: 1;
+}
+
+.contenitore-eroe {
+  text-align: center;
+  color: var(--luce-memory);
+  z-index: 2;
+  position: relative;
+  max-width: 800px;
+  padding: var(--spazio-enorme);
+}
+
+.titolo-principale {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: var(--spazio-grande);
+  text-shadow: var(--ombra-testo);
+  animation: pulsazione-titolo 2s ease-in-out infinite;
+}
+
+.descrizione-eroe {
+  font-size: 1.2rem;
+  margin-bottom: var(--spazio-medio);
+  opacity: 0.9;
+}
+
+.sottotitolo-eroe {
+  font-size: 1rem;
+  margin-bottom: var(--spazio-enorme);
+  opacity: 0.8;
+  color: var(--colore-elettro);
+  background: rgba(255, 255, 255, 0.2);
+  padding: var(--spazio-piccolo) var(--spazio-medio);
+  border-radius: var(--bordo-raggio);
+  display: inline-block;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Caratteristiche Hero */
+.caratteristiche-eroe {
+  display: flex;
+  justify-content: center;
+  gap: var(--spazio-medio);
+  margin-bottom: var(--spazio-enorme);
+  flex-wrap: wrap;
+}
+
+.caratteristica-eroe {
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--spazio-medio);
+  border-radius: var(--bordo-raggio);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 150px;
+  max-width: 180px;
+  transition: all var(--tempo-transizione);
+}
+
+.caratteristica-eroe:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--colore-elettro);
+}
+
+.icona-caratteristica-eroe {
+  font-size: 2.5rem;
+  margin-bottom: var(--spazio-piccolo);
+}
+
+.caratteristica-eroe h3 {
+  font-size: 1rem;
+  margin-bottom: 0;
+  color: var(--colore-elettro);
+  text-align: center;
+}
+
+.pulsante-cattura {
+  background: linear-gradient(
+    135deg,
+    var(--colore-fuoco),
+    var(--colore-elettro)
+  );
+  color: var(--testo-principale);
+  border: none;
+  padding: var(--spazio-grande) var(--spazio-enorme);
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: var(--bordo-raggio-grande);
+  cursor: pointer;
+  transition: all var(--tempo-transizione);
+  box-shadow: var(--ombra-carta);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.pulsante-cattura:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ombra-hover);
+  background: linear-gradient(
+    135deg,
+    var(--colore-elettro),
+    var(--colore-fuoco)
+  );
+}
+
+/* Elementi di sfondo animati */
+.elementi-sfondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.carta-fluttuante {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--bordo-raggio);
+  animation: fluttuazione 6s ease-in-out infinite;
+}
+
+.carta-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.carta-2 {
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.carta-3 {
+  top: 40%;
+  left: 80%;
+  animation-delay: 4s;
+}
+
+.silhouette-pokemon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  animation: pulsazione-pokemon 4s ease-in-out infinite;
+}
+
+.pokemon-1 {
+  top: 30%;
+  right: 20%;
+  animation-delay: 1s;
+}
+
+.pokemon-2 {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 3s;
+}
+
+/* Sezioni generali */
+.contenitore-sezione {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--spazio-enorme) var(--spazio-grande);
+}
+
+.titolo-sezione {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: var(--spazio-enorme);
+  color: var(--testo-principale);
+  position: relative;
+  padding-bottom: var(--spazio-grande);
+}
+
+.titolo-sezione::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--colore-psico), var(--colore-acqua));
+  border-radius: 2px;
+}
+
+/* Abilità di Memoria */
+.abilita-memoria {
+  background: var(--sfondo-sezione);
+  padding: var(--spazio-enorme) 0;
+}
+
+.caratteristiche-griglia {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spazio-grande);
+  justify-content: center;
+}
+
+.caratteristica-carta {
+  background: url("../assets/pokemon-hero.jpg") no-repeat center center;
+  background-size: cover;
+  padding: var(--spazio-grande);
+  border-radius: var(--bordo-raggio-grande);
+  box-shadow: var(--ombra-carta);
+  text-align: center;
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  transition: transform var(--tempo-transizione),
+    box-shadow var(--tempo-transizione);
+  position: relative;
+  overflow: hidden;
+}
+
+.caratteristica-carta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  z-index: 1;
+}
+
+.caratteristica-carta > * {
+  position: relative;
+  z-index: 2;
+}
+
+.caratteristica-carta:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ombra-hover);
+}
+
+.caratteristica-carta h3 {
+  color: var(--luce-memory);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 700;
+  margin-bottom: var(--spazio-piccolo);
+}
+
+.caratteristica-carta p {
+  color: var(--colore-elettro);
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.2);
+  padding: var(--spazio-piccolo) var(--spazio-medio);
+  border-radius: var(--bordo-raggio);
+  margin-top: var(--spazio-piccolo);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-block;
+}
+
+.icona-caratteristica {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto var(--spazio-grande);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--luce-memory);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.icona-memoria {
+  background: linear-gradient(
+    135deg,
+    var(--colore-psico),
+    var(--colore-psichico)
+  );
+}
+
+.icona-coppie {
+  background: linear-gradient(
+    135deg,
+    var(--colore-acqua),
+    var(--colore-ghiaccio)
+  );
+}
+
+.icona-interfaccia {
+  background: linear-gradient(
+    135deg,
+    var(--colore-fuoco),
+    var(--colore-elettro)
+  );
+}
+
+/* Istruzioni di gioco */
+.istruzioni-gioco {
+  background: linear-gradient(
+    135deg,
+    var(--colore-psico),
+    var(--colore-acqua),
+    var(--colore-fuoco)
+  );
+  padding: var(--spazio-enorme) 0;
+}
+
+.istruzioni-contenuto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spazio-grande);
+  justify-content: center;
+}
+
+.istruzione-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--spazio-grande);
+  border-radius: var(--bordo-raggio);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  transition: all var(--tempo-transizione);
+  text-align: center;
+}
+
+.istruzione-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--colore-elettro);
+}
+
+/* Стили для контента в карточках Come si Gioca */
+.istruzione-item h3 {
+  color: var(--luce-memory);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: var(--spazio-piccolo);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.istruzione-item p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: var(--spazio-piccolo);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.istruzione-item .numero-passo {
+  background: linear-gradient(
+    135deg,
+    var(--colore-elettro),
+    var(--colore-fuoco)
+  );
+  color: var(--testo-principale);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0 auto var(--spazio-piccolo);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.istruzione-item ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--spazio-piccolo) 0 0 0;
+}
+
+.istruzione-item li {
+  color: rgba(255, 255, 255, 0.8);
+  padding: var(--spazio-piccolo) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.istruzione-item li:last-child {
+  border-bottom: none;
+}
+
+.istruzione-item li::before {
+  content: "⚡";
+  margin-right: var(--spazio-piccolo);
+  color: var(--colore-elettro);
+}
+
+/* Recensioni */
+.recensioni-allenatori {
+  background: linear-gradient(
+    135deg,
+    var(--colore-fuoco),
+    var(--colore-elettro),
+    var(--colore-psico)
+  );
+  padding: var(--spazio-enorme) 0;
+}
+
+.recensioni-griglia {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spazio-grande);
+  justify-content: center;
+}
+
+.recensione-carta {
+  background: rgba(0, 0, 0, 0.4);
+  padding: var(--spazio-grande);
+  border-radius: var(--bordo-raggio-grande);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex: 1;
+  min-width: 300px;
+  max-width: 350px;
+  transition: all var(--tempo-transizione);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.recensione-carta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--colore-fuoco),
+    var(--colore-elettro),
+    var(--colore-psico)
+  );
+}
+
+.recensione-carta:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(0, 0, 0, 0.6);
+  border-color: var(--colore-elettro);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+.nome-allenatore {
+  font-weight: bold;
+  color: var(--luce-memory);
+  margin-bottom: var(--spazio-piccolo);
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.testo-recensione {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Tipi di Carte */
+.tipi-carte {
+  background: linear-gradient(
+    135deg,
+    var(--colore-roccia),
+    var(--colore-terra),
+    var(--colore-acciaio)
+  );
+  padding: var(--spazio-enorme) 0;
+}
+
+.tipi-carte-layout {
+  display: flex;
+  gap: var(--spazio-enorme);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carte-colonna {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spazio-medio);
+  flex: 1;
+  max-width: 300px;
+}
+
+.immagine-carte {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Адаптивность для больших экранов */
+@media (min-width: 1280px) {
+  .tipi-carte-layout {
+    gap: var(--spazio-enorme);
+  }
+
+  .carte-colonna {
+    max-width: 450px;
+  }
+
+  .immagine-carte {
+    max-width: 600px;
+  }
+
+  .tipo-carta {
+    padding: var(--spazio-grande);
+  }
+
+  .tipo-carta h3 {
+    font-size: 1.3rem;
+  }
+
+  .tipo-carta p {
+    font-size: 1rem;
+  }
+
+  .livello-carta {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+  .tipi-carte-layout {
+    gap: var(--spazio-grande);
+  }
+
+  .carte-colonna {
+    max-width: 350px;
+  }
+
+  .immagine-carte {
+    max-width: 400px;
+  }
+
+  .tipo-carta {
+    padding: var(--spazio-medio);
+  }
+
+  .tipo-carta h3 {
+    font-size: 1.1rem;
+  }
+
+  .tipo-carta p {
+    font-size: 0.9rem;
+  }
+
+  .livello-carta {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+  }
+}
+
+.immagine-carte img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--bordo-raggio-grande);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all var(--tempo-transizione);
+}
+
+.immagine-carte img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+.tipo-carta {
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--spazio-medio);
+  border-radius: var(--bordo-raggio-grande);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  transition: all var(--tempo-transizione);
+  position: relative;
+  overflow: hidden;
+}
+
+.tipo-carta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--colore-roccia),
+    var(--colore-terra),
+    var(--colore-acciaio)
+  );
+}
+
+.tipo-carta:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--colore-elettro);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+.livello-carta {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto var(--spazio-piccolo);
+  border-radius: var(--bordo-raggio);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--luce-memory);
+}
+
+.livello-facile {
+  background: linear-gradient(135deg, var(--colore-erba), var(--colore-acqua));
+}
+
+.livello-medio {
+  background: linear-gradient(
+    135deg,
+    var(--colore-fuoco),
+    var(--colore-elettro)
+  );
+}
+
+.livello-difficile {
+  background: linear-gradient(
+    135deg,
+    var(--colore-psico),
+    var(--colore-psichico)
+  );
+}
+
+/* Стили для текста в карточках Tipi di Carte */
+.tipo-carta h3 {
+  color: var(--luce-memory);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: var(--spazio-piccolo);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tipo-carta p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+  font-size: 0.9rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Sfide a Tempo */
+.sfide-tempo {
+  background: var(--sfondo-sezione);
+  padding: var(--spazio-enorme) 0;
+}
+
+.meccaniche-griglia {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spazio-grande);
+  justify-content: center;
+}
+
+.meccanica-carta {
+  background-image: url("../assets/pokemon-section.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: var(--spazio-grande);
+  border-radius: var(--bordo-raggio-grande);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  transition: all var(--tempo-transizione);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+}
+
+.meccanica-carta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+.meccanica-carta > * {
+  position: relative;
+  z-index: 2;
+}
+
+.meccanica-carta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.meccanica-carta h3 {
+  color: var(--luce-memory);
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: var(--spazio-medio);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.meccanica-carta p {
+  color: var(--luce-memory);
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  margin-bottom: var(--spazio-grande);
+  flex-grow: 1;
+}
+
+.meccanica-carta .info {
+  color: var(--colore-elettro);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.15)
+  );
+  padding: var(--spazio-medio);
+  border-radius: var(--bordo-raggio);
+  display: block;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+.meccanica-carta .info strong {
+  color: var(--colore-fuoco);
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+.pokemon-footer {
+  background: linear-gradient(135deg, var(--colore-buio), var(--colore-roccia));
+  color: var(--luce-memory);
+  padding: var(--spazio-enorme) var(--spazio-grande);
+  margin-top: var(--spazio-enorme);
+}
+
+.footer-contenuto {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--spazio-grande);
+}
+
+.footer-sezione {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-titolo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: var(--spazio-medio);
+  color: var(--colore-elettro);
+}
+
+.footer-link {
+  color: var(--luce-memory);
+  text-decoration: none;
+  display: block;
+  margin-bottom: var(--spazio-piccolo);
+  transition: color var(--tempo-transizione);
+}
+
+.footer-link:hover {
+  color: var(--colore-elettro);
+}
+
+.footer-info {
+  margin-bottom: var(--spazio-piccolo);
+  opacity: 0.9;
+}
+
+.copyright-pokemon {
+  text-align: center;
+  margin-top: var(--spazio-grande);
+  padding-top: var(--spazio-grande);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+}
+
+/* Animazioni */
+@keyframes pulsazione-titolo {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fluttuazione {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes pulsazione-pokemon {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes slideDownMenu {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Pagine specifiche */
+.notizie-hero,
+.contatti-hero {
+  min-height: 60vh;
+}
+
+.notizie-contenuto,
+.contatti-contenuto {
+  background: var(--sfondo-sezione);
+  padding: var(--spazio-enorme) 0;
+}
+
+.sezione-notizie {
+  margin-bottom: var(--spazio-enorme);
+}
+
+.sezione-notizie h3 {
+  color: var(--colore-psico);
+  font-size: 1.8rem;
+  margin-bottom: var(--spazio-grande);
+  text-align: center;
+}
+
+.notizia-carta,
+.diario-carta {
+  background: var(--sfondo-sezione);
+  padding: var(--spazio-grande);
+  border-radius: var(--bordo-raggio);
+  box-shadow: var(--ombra-carta);
+  margin-bottom: var(--spazio-grande);
+  border-left: 4px solid var(--colore-acqua);
+  transition: transform var(--tempo-transizione);
+}
+
+.notizia-carta:hover,
+.diario-carta:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ombra-hover);
+}
+
+.notizia-carta h4,
+.diario-carta h4 {
+  color: var(--colore-psico);
+  margin-bottom: var(--spazio-piccolo);
+}
+
+.data-notizia,
+.autore-diario {
+  color: var(--testo-secondario);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Pagina contatti */
+.contatti-griglia {
+  display: flex;
+  gap: var(--spazio-enorme);
+  flex-wrap: wrap;
+}
+
+.info-contatti-sezione,
+.form-contatto-sezione {
+  flex: 1;
+  min-width: 300px;
+}
+
+.info-contatti {
+  background: var(--sfondo-sezione);
+  padding: var(--spazio-grande);
+  border-radius: var(--bordo-raggio);
+  box-shadow: var(--ombra-carta);
+  margin-bottom: var(--spazio-grande);
+}
+
+.contatto-item {
+  margin-bottom: var(--spazio-medio);
+  padding: var(--spazio-piccolo) 0;
+  border-bottom: 1px solid var(--sfondo-principale);
+}
+
+.contatto-item:last-child {
+  border-bottom: none;
+}
+
+.mappa-container {
+  border-radius: var(--bordo-raggio);
+  overflow: hidden;
+  box-shadow: var(--ombra-carta);
+}
+
+/* Form di contatto */
+.form-contatto {
+  background: var(--sfondo-sezione);
+  padding: var(--spazio-grande);
+  border-radius: var(--bordo-raggio);
+  box-shadow: var(--ombra-carta);
+}
+
+.campo-form {
+  margin-bottom: var(--spazio-grande);
+}
+
+.campo-form label {
+  display: block;
+  margin-bottom: var(--spazio-piccolo);
+  font-weight: 500;
+  color: var(--testo-principale);
+}
+
+.campo-form input,
+.campo-form textarea {
+  width: 100%;
+  padding: var(--spazio-medio);
+  border: 2px solid var(--sfondo-principale);
+  border-radius: var(--bordo-raggio);
+  font-size: 1rem;
+  transition: border-color var(--tempo-transizione);
+}
+
+.campo-form input:focus,
+.campo-form textarea:focus {
+  outline: none;
+  border-color: var(--colore-psico);
+}
+
+.pulsante-invio {
+  background: linear-gradient(
+    135deg,
+    var(--colore-psico),
+    var(--colore-psichico)
+  );
+  color: var(--luce-memory);
+  border: none;
+  padding: var(--spazio-grande) var(--spazio-enorme);
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: var(--bordo-raggio);
+  cursor: pointer;
+  transition: all var(--tempo-transizione);
+  box-shadow: var(--ombra-carta);
+}
+
+.pulsante-invio:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ombra-hover);
+}
+
+/* Sezione Gioco Iframe */
+.sezione-gioco-iframe {
+  background: linear-gradient(
+    135deg,
+    var(--sfondo-principale),
+    var(--sfondo-sezione)
+  );
+  padding: var(--spazio-enorme) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.contenitore-iframe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spazio-grande);
+}
+
+.contenitore-iframe iframe {
+  width: 100%;
+  max-width: 854px;
+  height: auto;
+  aspect-ratio: 16/9;
+  border-radius: var(--bordo-raggio);
+  box-shadow: var(--ombra-hover);
+  transition: transform var(--tempo-transizione);
+}
+
+.contenitore-iframe iframe:hover {
+  transform: scale(1.02);
+}
+
+/* Pagine legali */
+.pagina-legale {
+  background: var(--sfondo-sezione);
+  padding: var(--spazio-enorme) 0;
+}
+
+.contenuto-legale {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.contenuto-legale h2 {
+  color: var(--colore-psico);
+  margin: var(--spazio-grande) 0 var(--spazio-medio);
+  font-size: 1.5rem;
+}
+
+.contenuto-legale h3 {
+  color: var(--colore-acqua);
+  margin: var(--spazio-medio) 0 var(--spazio-piccolo);
+  font-size: 1.2rem;
+}
+
+.contenuto-legale p {
+  margin-bottom: var(--spazio-medio);
+  color: var(--testo-principale);
+}
+
+.contenuto-legale ul {
+  margin: var(--spazio-medio) 0;
+  padding-left: var(--spazio-grande);
+}
+
+.contenuto-legale li {
+  margin-bottom: var(--spazio-piccolo);
+  color: var(--testo-secondario);
+}
+
+.data-ultimo-aggiornamento {
+  font-style: italic;
+  color: var(--testo-secondario);
+  margin-top: var(--spazio-grande);
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-pokemon {
+    display: none;
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  .titolo-principale {
+    font-size: 2.5rem;
+  }
+
+  .contenitore-eroe {
+    padding: var(--spazio-grande);
+  }
+
+  .titolo-principale {
+    font-size: 2rem;
+  }
+
+  .descrizione-eroe {
+    font-size: 1rem;
+  }
+
+  .sottotitolo-eroe {
+    font-size: 0.9rem;
+    padding: var(--spazio-piccolo);
+  }
+
+  .caratteristiche-eroe {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spazio-piccolo);
+  }
+
+  .caratteristica-eroe {
+    min-width: 100%;
+    max-width: 250px;
+  }
+
+  .pulsante-cattura {
+    font-size: 1rem;
+    padding: var(--spazio-medio) var(--spazio-grande);
+  }
+
+  .caratteristiche-griglia,
+  .recensioni-griglia,
+  .carte-griglia,
+  .meccaniche-griglia {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .caratteristica-carta,
+  .recensione-carta,
+  .tipo-carta,
+  .meccanica-carta,
+  .istruzione-item {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .tipi-carte-layout {
+    flex-direction: column-reverse;
+    gap: var(--spazio-enorme);
+  }
+
+  .carte-colonna {
+    max-width: 100%;
+  }
+
+  .immagine-carte {
+    max-width: 100%;
+    order: -1;
+  }
+
+  .tipo-carta {
+    min-width: 100%;
+    max-width: 100%;
+    padding: var(--spazio-medio);
+  }
+
+  .tipo-carta h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spazio-piccolo);
+  }
+
+  .tipo-carta p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .livello-carta {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    margin-bottom: var(--spazio-piccolo);
+  }
+
+  .carte-colonna {
+    gap: var(--spazio-medio);
+  }
+
+  .immagine-carte img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .recensione-carta {
+    max-width: 100%;
+  }
+
+  .nome-allenatore {
+    font-size: 1.1rem;
+  }
+
+  .istruzione-item h3 {
+    font-size: 1.3rem;
+  }
+
+  .istruzione-item .numero-passo {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+
+  .footer-contenuto {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contatti-griglia {
+    flex-direction: column;
+  }
+
+  .info-contatti-sezione,
+  .form-contatto-sezione {
+    min-width: 100%;
+  }
+
+  .sezione-gioco-iframe {
+    min-height: 60vh;
+    padding: var(--spazio-grande) 0;
+  }
+
+  .contenitore-iframe {
+    padding: 0 var(--spazio-medio);
+  }
+
+  .contenitore-iframe iframe {
+    max-width: 100%;
+    aspect-ratio: 16/10;
+    height: 400px;
+  }
+}
+
+@media (max-width: 360px) {
+  .titolo-principale {
+    font-size: 2rem;
+  }
+
+  .descrizione-eroe {
+    font-size: 1rem;
+  }
+
+  .pulsante-inizio {
+    padding: var(--spazio-medio) var(--spazio-grande);
+    font-size: 1rem;
+  }
+
+  .contenitore-sezione {
+    padding: var(--spazio-grande) var(--spazio-medio);
+  }
+
+  .titolo-principale {
+    font-size: 1.8rem;
+  }
+
+  .descrizione-eroe {
+    font-size: 0.9rem;
+  }
+
+  .sottotitolo-eroe {
+    font-size: 0.8rem;
+    padding: var(--spazio-piccolo);
+  }
+
+  .caratteristica-eroe {
+    min-width: 100%;
+    max-width: 200px;
+    padding: var(--spazio-piccolo);
+  }
+
+  .pulsante-cattura {
+    font-size: 0.9rem;
+    padding: var(--spazio-piccolo) var(--spazio-medio);
+  }
+
+  .sezione-gioco-iframe {
+    min-height: 50vh;
+    padding: var(--spazio-medio) 0;
+  }
+
+  .contenitore-iframe {
+    padding: 0 var(--spazio-piccolo);
+  }
+
+  .contenitore-iframe iframe {
+    aspect-ratio: 16/10;
+    height: 350px;
+  }
+
+  .istruzione-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .istruzione-item .numero-passo {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .istruzione-item {
+    padding: var(--spazio-medio);
+  }
+
+  .recensione-carta {
+    padding: var(--spazio-medio);
+  }
+
+  .nome-allenatore {
+    font-size: 1rem;
+  }
+
+  .testo-recensione {
+    font-size: 0.9rem;
+  }
+
+  .tipo-carta h3 {
+    font-size: 0.95rem;
+    margin-bottom: var(--spazio-piccolo);
+  }
+
+  .tipo-carta {
+    padding: var(--spazio-piccolo);
+  }
+
+  .tipo-carta p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .immagine-carte img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .livello-carta {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    margin-bottom: var(--spazio-piccolo);
+  }
+
+  .tipi-carte-layout {
+    gap: var(--spazio-medio);
+  }
+
+  .carte-colonna {
+    gap: var(--spazio-piccolo);
+  }
+
+  .contenitore-sezione {
+    padding: var(--spazio-grande) var(--spazio-medio);
+  }
+
+  .titolo-sezione {
+    font-size: 2rem;
+    margin-bottom: var(--spazio-grande);
+  }
+}
+
+/* Menu mobile attivo */
+.nav-mobile-attivo {
+  display: flex !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--colore-buio), var(--colore-roccia));
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spazio-enorme);
+  gap: var(--spazio-grande);
+  box-shadow: var(--ombra-carta);
+  z-index: 1000;
+  animation: slideDownMenu 0.3s ease-out;
+  overflow: hidden;
+}
+
+/* Blocca scroll quando menu è aperto */
+body.menu-aperto {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+.nav-mobile-attivo .nav-link {
+  color: var(--luce-memory);
+  padding: var(--spazio-grande);
+  border-radius: var(--bordo-raggio);
+  transition: all var(--tempo-transizione);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  min-width: 200px;
+  border: 2px solid transparent;
+}
+
+.nav-mobile-attivo .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--colore-elettro);
+  border-color: var(--colore-elettro);
+  transform: scale(1.05);
+}
+
+/* Кнопка закрытия мобильного меню */
+.chiudi-menu {
+  position: absolute;
+  top: var(--spazio-grande);
+  right: var(--spazio-grande);
+  background: none;
+  border: none;
+  color: var(--luce-memory);
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: var(--spazio-piccolo);
+  border-radius: 50%;
+  transition: all var(--tempo-transizione);
+  z-index: 1001;
+  display: none;
+}
+
+.nav-mobile-attivo .chiudi-menu {
+  display: block;
+}
+
+.chiudi-menu:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--colore-fuoco);
+  transform: scale(1.2);
+}
+
+/* Animazione burger menu */
+.burger-attivo .burger-linea:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-attivo .burger-linea:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-attivo .burger-linea:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}

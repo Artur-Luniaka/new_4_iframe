@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contatti - Pokémon Memory Time</title>
+    <meta
+      name="description"
+      content="Contattaci per qualsiasi domanda su Pokémon Memory Time. Siamo qui per aiutarti!"
+    />
+    <link rel="stylesheet" href="css/pokemon-styles.css" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="pokemon-header-container"></div>
+
+    <main class="contenuto-principale">
+      <section class="eroe-sezione contatti-hero">
+        <div class="contenitore-eroe">
+          <h1 class="titolo-principale">Contattaci</h1>
+          <p class="descrizione-eroe">Hai domande? Siamo qui per aiutarti!</p>
+        </div>
+      </section>
+
+      <section class="contatti-contenuto">
+        <div class="contenitore-sezione">
+          <div class="contatti-griglia">
+            <div class="info-contatti-sezione">
+              <h2 class="titolo-sezione">Informazioni di Contatto</h2>
+              <div id="contatti-contenuto">
+                <!-- Contenuto caricato da JSON -->
+              </div>
+            </div>
+
+            <div class="form-contatto-sezione">
+              <h2 class="titolo-sezione">Invia un Messaggio</h2>
+              <form id="form-contatto" class="form-contatto">
+                <div class="campo-form">
+                  <label for="nome">Nome Completo *</label>
+                  <input type="text" id="nome" name="nome" required />
+                </div>
+
+                <div class="campo-form">
+                  <label for="telefono">Numero di Telefono *</label>
+                  <input type="tel" id="telefono" name="telefono" required />
+                </div>
+
+                <div class="campo-form">
+                  <label for="messaggio">Messaggio *</label>
+                  <textarea
+                    id="messaggio"
+                    name="messaggio"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="pulsante-invio">
+                  Invia Messaggio
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="pokemon-footer-container"></div>
+
+    <script src="js/pokemon-script.js"></script>
+  </body>
+</html>

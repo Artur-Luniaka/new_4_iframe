@@ -1,0 +1,31 @@
+{
+  "istruzioni": [
+    {
+      "titolo": "Come Iniziare",
+      "descrizione": "Seleziona il livello di difficoltà e clicca su 'Inizia' per avviare la sfida. Le carte saranno disposte a faccia in giù sul tavolo.",
+      "suggerimenti": [
+        "Inizia con il livello facile per familiarizzare con il gioco",
+        "Osserva attentamente la posizione delle carte",
+        "Ricorda le posizioni mentre giri le carte"
+      ]
+    },
+    {
+      "titolo": "Obiettivo del Gioco",
+      "descrizione": "Trova tutte le coppie di carte uguali girandole due alla volta. Il gioco è completato quando tutte le coppie sono state trovate.",
+      "suggerimenti": [
+        "Concentrati su una sezione alla volta",
+        "Crea una strategia per ricordare le posizioni",
+        "Non avere fretta, la precisione è più importante della velocità"
+      ]
+    },
+    {
+      "titolo": "Sistema di Punteggio",
+      "descrizione": "Il tuo punteggio è basato sul numero di mosse e sul tempo impiegato. Meno mosse e meno tempo = punteggio migliore!",
+      "suggerimenti": [
+        "Cerca di completare il gioco con il minor numero di mosse possibile",
+        "Mantieni un ritmo costante",
+        "Pratica regolarmente per migliorare i tuoi tempi"
+      ]
+    }
+  ]
+}
