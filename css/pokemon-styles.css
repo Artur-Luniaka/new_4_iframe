@@ -1721,7 +1721,7 @@ body {
   line-height: 1.8;
   background: rgba(255, 255, 255, 0.95);
   border-radius: var(--bordo-raggio-grande);
-  padding: var(--spazio-enorme);
+  padding: var(--spazio-grande);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1800,16 +1800,6 @@ body {
   position: relative;
   padding-left: 10px;
   line-height: 1.6;
-}
-
-.contenuto-legale li::before {
-  content: "▶";
-  position: absolute;
-  left: -5px;
-  top: 3px;
-  color: var(--colore-psico);
-  font-size: 0.8rem;
-  transform: rotate(90deg);
 }
 
 .contenuto-legale li:last-child {
@@ -2340,7 +2330,7 @@ body {
 
   /* Responsive per pagine legali su schermi molto piccoli */
   .contenuto-legale {
-    padding: var(--spazio-medio);
+    padding: var(--spazio-piccolo);
     margin: 0 var(--spazio-piccolo);
   }
 
