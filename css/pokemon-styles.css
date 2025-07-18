@@ -86,6 +86,7 @@ body {
   color: var(--testo-principale);
   background-color: var(--sfondo-principale);
   overflow-x: hidden;
+  position: relative;
 }
 
 /* Header */
@@ -2395,6 +2396,11 @@ body.menu-aperto {
   width: 100%;
 }
 
+/* Nasconde il cookie bar quando il menu mobile è aperto */
+body.menu-aperto .cookie-consent-bar {
+  display: none !important;
+}
+
 .nav-mobile-attivo .nav-link {
   color: var(--luce-memory);
   padding: var(--spazio-grande);
@@ -2457,7 +2463,7 @@ body.menu-aperto {
 
 /* Cookie Consent Bar */
 .cookie-consent-bar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
