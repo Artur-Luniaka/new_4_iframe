@@ -103,7 +103,7 @@ function aggiornaCopyrightPokemon() {
   const copyrightElement = document.querySelector(".copyright-pokemon");
   if (copyrightElement) {
     const annoCorrente = new Date().getFullYear();
-    copyrightElement.textContent = `© ${annoCorrente} Pokémon Memory Time. Tutti i diritti riservati.`;
+    copyrightElement.textContent = `© ${annoCorrente} getpayots.com | Tutti i diritti riservati`;
   }
 }
 
@@ -228,36 +228,138 @@ function visualizzaRecensioniPokemon(dati, elemento) {
 function visualizzaNotiziePokemon(dati, elemento) {
   let htmlContenuto = "";
 
-  // Aggiornamenti di gioco
+  // Aggiornamenti di gioco - Due grandi carte
   if (dati.aggiornamenti) {
     htmlContenuto +=
       '<div class="sezione-notizie"><h3>Aggiornamenti di Gioco</h3>';
-    dati.aggiornamenti.forEach((aggiornamento) => {
+    htmlContenuto += '<div class="aggiornamenti-griglia">';
+
+    // Prima carta grande con первыми двумя обновлениями
+    htmlContenuto += `
+      <div class="aggiornamento-carta-grande">
+        <div class="aggiornamento-header">
+          <h4>Ultime Novità</h4>
+          <div class="aggiornamento-icona">🎮</div>
+        </div>
+        <div class="aggiornamento-contenuto">
+    `;
+
+    dati.aggiornamenti.slice(0, 2).forEach((aggiornamento) => {
       htmlContenuto += `
-                <div class="notizia-carta">
-                    <h4>${aggiornamento.titolo}</h4>
-                    <p>${aggiornamento.descrizione}</p>
-                    <span class="data-notizia">${aggiornamento.data}</span>
-                </div>
-            `;
+        <div class="aggiornamento-item">
+          <h5>${aggiornamento.titolo}</h5>
+          <p>${aggiornamento.descrizione}</p>
+          <span class="data-notizia">${aggiornamento.data}</span>
+        </div>
+      `;
     });
-    htmlContenuto += "</div>";
+
+    htmlContenuto += `
+        </div>
+        <div class="aggiornamento-footer">
+          <span class="aggiornamento-stato">Attivo</span>
+          <span class="aggiornamento-categoria">Gioco</span>
+        </div>
+      </div>
+    `;
+
+    // Вторая большая карта с остальными обновлениями
+    htmlContenuto += `
+      <div class="aggiornamento-carta-grande">
+        <div class="aggiornamento-header">
+          <h4>Miglioramenti Tecnici</h4>
+          <div class="aggiornamento-icona">⚡</div>
+        </div>
+        <div class="aggiornamento-contenuto">
+    `;
+
+    dati.aggiornamenti.slice(2, 4).forEach((aggiornamento) => {
+      htmlContenuto += `
+        <div class="aggiornamento-item">
+          <h5>${aggiornamento.titolo}</h5>
+          <p>${aggiornamento.descrizione}</p>
+          <span class="data-notizia">${aggiornamento.data}</span>
+        </div>
+      `;
+    });
+
+    htmlContenuto += `
+        </div>
+        <div class="aggiornamento-footer">
+          <span class="aggiornamento-stato">Completato</span>
+          <span class="aggiornamento-categoria">Tecnico</span>
+        </div>
+      </div>
+    `;
+
+    htmlContenuto += "</div></div>";
   }
 
-  // Diari di allenamento
+  // Diari di allenamento - Due grandi carte
   if (dati.diari) {
     htmlContenuto +=
-      '<div class="sezione-notizie"><h3>Diari di Allenamento</h3>';
-    dati.diari.forEach((diario) => {
+      '<div class="sezione-notizie diari-sezione"><h3>Diari di Allenamento</h3>';
+    htmlContenuto += '<div class="diari-griglia">';
+
+    // Prima carta grande con первыми тремя дневниками
+    htmlContenuto += `
+      <div class="diario-carta-grande">
+        <div class="diario-header">
+          <h4>Esperienze degli Allenatori</h4>
+          <div class="diario-icona">📚</div>
+        </div>
+        <div class="diario-contenuto">
+    `;
+
+    dati.diari.slice(0, 3).forEach((diario) => {
       htmlContenuto += `
-                <div class="diario-carta">
-                    <h4>${diario.titolo}</h4>
-                    <p>${diario.contenuto}</p>
-                    <span class="autore-diario">${diario.autore}</span>
-                </div>
-            `;
+        <div class="diario-item">
+          <h5>${diario.titolo}</h5>
+          <p>${diario.contenuto}</p>
+          <span class="autore-diario">${diario.autore}</span>
+        </div>
+      `;
     });
-    htmlContenuto += "</div>";
+
+    htmlContenuto += `
+        </div>
+        <div class="diario-footer">
+          <span class="diario-stato">Attivo</span>
+          <span class="diario-categoria">Esperienze</span>
+        </div>
+      </div>
+    `;
+
+    // Вторая большая карта с остальными дневниками
+    htmlContenuto += `
+      <div class="diario-carta-grande">
+        <div class="diario-header">
+          <h4>Testimonianze Speciali</h4>
+          <div class="diario-icona">🌟</div>
+        </div>
+        <div class="diario-contenuto">
+    `;
+
+    dati.diari.slice(3, 6).forEach((diario) => {
+      htmlContenuto += `
+        <div class="diario-item">
+          <h5>${diario.titolo}</h5>
+          <p>${diario.contenuto}</p>
+          <span class="autore-diario">${diario.autore}</span>
+        </div>
+      `;
+    });
+
+    htmlContenuto += `
+        </div>
+        <div class="diario-footer">
+          <span class="diario-stato">Completato</span>
+          <span class="diario-categoria">Testimonianze</span>
+        </div>
+      </div>
+    `;
+
+    htmlContenuto += "</div></div>";
   }
 
   elemento.innerHTML = htmlContenuto;
@@ -289,17 +391,107 @@ function inviaFormContatto(evento) {
   evento.preventDefault();
 
   const formDati = new FormData(evento.target);
-  const nomeContatto = formDati.get("nome");
-  const telefonoContatto = formDati.get("telefono");
-  const messaggioContatto = formDati.get("messaggio");
+  const nomeContatto = formDati.get("nome").trim();
+  const telefonoContatto = formDati.get("telefono").trim();
+  const messaggioContatto = formDati.get("messaggio").trim();
 
-  if (nomeContatto && telefonoContatto && messaggioContatto) {
-    mostraMessaggioPsico(
+  // Validazione semplice - controlla se i campi sono vuoti
+  if (!nomeContatto || !telefonoContatto || !messaggioContatto) {
+    mostraMessaggioPsico("Per favore compila tutti i campi obbligatori.");
+    return;
+  }
+
+  // Se tutti i campi sono compilati, mostra messaggio di successo
+  evento.target.reset();
+
+  // Scroll in cima alla pagina
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+
+  // Mostra notifica a schermo intero
+  setTimeout(() => {
+    mostraNotificaSchermoIntero(
       "Messaggio inviato con successo! Ti risponderemo presto."
     );
-    evento.target.reset();
-  } else {
-    mostraMessaggioPsico("Per favore compila tutti i campi.");
+  }, 500);
+}
+
+// Funzione per mostrare notifica a schermo intero
+function mostraNotificaSchermoIntero(messaggio) {
+  // Crea overlay
+  const overlay = document.createElement("div");
+  overlay.className = "notifica-overlay";
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  `;
+
+  // Crea notifica
+  const notifica = document.createElement("div");
+  notifica.className = "notifica-schermo-intero";
+  notifica.style.cssText = `
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, var(--colore-psico), var(--colore-psichico));
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    z-index: 10001;
+  `;
+
+  notifica.innerHTML = `
+    <div style="font-size: 1.2rem; margin-bottom: 5px;">✅</div>
+    <p style="font-size: 1rem; margin: 0; line-height: 1.3;">${messaggio}</p>
+  `;
+
+  document.body.appendChild(overlay);
+  document.body.appendChild(notifica);
+
+  // Anima l'overlay
+  setTimeout(() => {
+    overlay.style.opacity = "1";
+  }, 10);
+
+  // Anima la notifica
+  setTimeout(() => {
+    notifica.style.transform = "translateY(0)";
+  }, 300);
+
+  // Auto-close dopo 3 secondi
+  setTimeout(() => {
+    chiudiNotifica();
+  }, 3000);
+}
+
+// Funzione per chiudere la notifica
+function chiudiNotifica() {
+  const overlay = document.querySelector(".notifica-overlay");
+  const notifica = document.querySelector(".notifica-schermo-intero");
+
+  if (overlay && notifica) {
+    notifica.style.transform = "translateY(100%)";
+
+    setTimeout(() => {
+      overlay.style.opacity = "0";
+      setTimeout(() => {
+        document.body.removeChild(overlay);
+        document.body.removeChild(notifica);
+      }, 300);
+    }, 500);
   }
 }
 
@@ -349,17 +541,56 @@ function navigazioneSmooth() {
   });
 }
 
+// Cookie Consent Functions
+function inizializzaCookieConsent() {
+  const cookieConsent = localStorage.getItem("cookieConsent");
+
+  if (!cookieConsent) {
+    mostraCookieBar();
+  }
+
+  const acceptButton = document.getElementById("accept-cookies");
+  if (acceptButton) {
+    acceptButton.addEventListener("click", accettaCookie);
+  }
+}
+
+function mostraCookieBar() {
+  const cookieBar = document.getElementById("cookie-consent-bar");
+  if (cookieBar) {
+    setTimeout(() => {
+      cookieBar.classList.add("show");
+    }, 1000); // Show after 1 second
+  }
+}
+
+function accettaCookie() {
+  localStorage.setItem("cookieConsent", "accepted");
+  const cookieBar = document.getElementById("cookie-consent-bar");
+  if (cookieBar) {
+    cookieBar.classList.remove("show");
+    setTimeout(() => {
+      cookieBar.style.display = "none";
+    }, 500);
+  }
+}
+
 // Funzione per inizializzare tutte le funzionalità
 function inizializzaPokemonMemory() {
   caricaComponentiPokemon();
 
   // Carica contenuto JSON per la pagina corrente
-  const paginaCorrente =
-    window.location.pathname.split("/").pop() || "index.html";
+  const paginaCorrente = window.location.pathname.split("/").pop() || "";
+  const isMainPage =
+    paginaCorrente === "" ||
+    paginaCorrente === "index.html" ||
+    window.location.pathname.endsWith("/") ||
+    window.location.pathname.endsWith("/index.html");
 
-  if (paginaCorrente === "index.html") {
+  if (isMainPage) {
     caricaContenutoJSON("istruzioni", "istruzioni-contenuto", "istruzioni");
     caricaContenutoJSON("recensioni", "recensioni-griglia", "recensioni");
+    inizializzaCookieConsent(); // Initialize cookie consent only on main page
   } else if (paginaCorrente === "notizie-gioco.html") {
     caricaContenutoJSON("notizie", "notizie-contenuto", "notizie");
   } else if (paginaCorrente === "contatti.html") {
