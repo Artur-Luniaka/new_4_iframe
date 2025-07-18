@@ -2393,7 +2393,7 @@ body {
   padding: var(--spazio-enorme);
   gap: var(--spazio-grande);
   box-shadow: var(--ombra-carta);
-  z-index: 1000;
+  z-index: 1005;
   animation: slideDownMenu 0.3s ease-out;
   overflow: hidden;
 }
@@ -2438,7 +2438,7 @@ body.menu-aperto {
   padding: var(--spazio-piccolo);
   border-radius: 50%;
   transition: all var(--tempo-transizione);
-  z-index: 1001;
+  z-index: 10006;
   display: none;
 }
 
@@ -2467,7 +2467,7 @@ body.menu-aperto {
 
 /* Cookie Consent Bar */
 .cookie-consent-bar {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
@@ -2475,7 +2475,7 @@ body.menu-aperto {
   color: var(--luce-memory);
   padding: var(--spazio-medio);
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
-  z-index: 10000;
+  z-index: 1000;
   transform: translateY(100%);
   transition: transform var(--tempo-animazione) ease-out;
   border-top: 3px solid var(--colore-elettro);

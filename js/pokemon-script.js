@@ -138,7 +138,7 @@ function mostraMessaggioPsico(messaggio) {
         padding: 15px 20px;
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        z-index: 10000;
+        z-index: 1000;
         animation: slideInPsico 0.5s ease-out;
     `;
 
@@ -430,7 +430,7 @@ function mostraNotificaSchermoIntero(messaggio) {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    z-index: 10000;
+    
     opacity: 0;
     transition: opacity 0.3s ease;
   `;
@@ -449,8 +449,8 @@ function mostraNotificaSchermoIntero(messaggio) {
     text-align: center;
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
     transform: translateY(100%);
+ 
     transition: transform 0.5s ease;
-    z-index: 10001;
   `;
 
   notifica.innerHTML = `
